@@ -1,0 +1,114 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop.
+
+******************************************************************/
+.anchor:before {
+  height:69px; /* fixed header height*/
+  margin:-69px 0 0; /* negative fixed header height */
+}
+
+.wrap {
+  width: 1040px;
+}
+@media screen and (min-width:1175px){
+  #inner-header {
+    nav {
+      position: relative;
+      width: auto;
+    }
+      .top-nav {
+        border-top: none;
+        display: block;
+
+        li {
+          border-bottom: none;
+          float: left;
+        }
+      }
+  }
+  .header {
+    .white-btn {
+      margin-top: 15px;
+    }
+  }
+}
+
+.nav li a {
+  padding: 25px 20px 23px 20px;
+}
+@media screen and (min-width:1175px){
+  #logo {
+    margin: 0 26px 0 10px;
+
+    a {
+      height: 69px;
+      width: 99px;
+    }
+  }
+  #container {
+    padding-top: 69px;
+  }
+}
+
+.page-blocks-wrapper {
+  .page-block {
+    .page-block-contents {
+      padding: 0 50px 27px 34px;
+      &:after {
+        right: 27px;
+      }
+      p {
+        strong {
+          display: inline;
+        }
+      }
+    }
+  }
+}
+
+#product-anchors {
+  ul {
+    li {
+      margin: 0 20px;
+    }
+  }
+}
+
+.product-rows {
+  .product-row {
+    .product-row-content {
+      
+      .product-overview {
+        margin-top: -7%;
+      }
+      
+      h2 {
+        font-size: 46px;
+      }
+      span {
+        font-size: 29px;
+      }
+    }
+    .show-more-content {
+      .product-details-right {
+        ul.product-features {
+          li {
+            width: 32%;
+            
+          }
+        }
+      } 
+    }
+  }
+}
+
+.grid-wrapper {
+  margin: 9px 0;
+}
+

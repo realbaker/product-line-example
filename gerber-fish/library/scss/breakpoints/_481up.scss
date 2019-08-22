@@ -1,0 +1,322 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: 481px and Up Stylesheet
+
+This stylesheet is loaded for larger devices. It's set to
+481px because at 480px it would load on a landscaped iPhone.
+This isn't ideal because then you would be loading all those
+extra styles on that same mobile connection.
+
+A word of warning. This size COULD be a larger mobile device,
+so you still want to keep it pretty light and simply expand
+upon your base.scss styles.
+
+******************************************************************/
+
+/*
+IMPORTANT NOTE ABOUT SASS 3.3 & UP
+You can't use @extend within media queries
+anymore, so just be aware that if you drop
+them in here, they won't work.
+*/
+
+.mobile-hide {
+  display: inline-block;
+}
+
+.mobile-show {
+  display: none !important;
+}
+
+.align-bottom {
+  margin-top: auto;
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.nav {}
+
+	/* .menu is clearfixed inside mixins.scss */
+	.menu {
+		ul {
+			li {
+				a {
+
+					/*
+					you can use hover styles here even though this size
+					has the possibility of being a mobile device.
+					*/
+					&:hover, &:focus {
+
+					}
+				}
+
+				&:first-child {}
+				&:last-child {}
+
+				/*
+				plan your menus and drop-downs wisely.
+				*/
+				ul.sub-menu,
+				ul.children {
+					li {
+						a {
+							&:hover,
+							&:focus {}
+							&:link {}
+						}
+						&:first-child {}
+						&:last-child {}
+					}
+				}
+			} /* end .menu ul li */
+
+			/* highlight current page */
+			li.current-menu-item,
+			li.current_page_item,
+			li.current_page_ancestor {
+				a {}
+			}  /* end current highlighters */
+		} /* end .menu ul */
+	} /* end .menu */
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+.page-template-default {
+  .custom-header {
+    
+    .overlay {
+      background-color: rgba(0, 0, 0, .25);
+    }
+    
+    .header-content {
+      background-color: transparent;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      
+      h1 {
+        font-size: 33px;
+        margin-bottom: 28px;
+        
+        &:after {
+          display: inline-block;
+        }
+      }
+      .subtitle {
+        font-size: 25px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+/* entry content */
+.entry-content {
+
+
+	/* at this larger size, we can start to align images */
+	.alignleft, img.alignleft {
+		margin-right: 1.5em;
+		display: inline;
+		float: left;
+	}
+	.alignright, img.alignright {
+		margin-left: 1.5em;
+		display: inline;
+		float: right;
+	}
+	.aligncenter, img.aligncenter {
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+		clear: both;
+	}
+
+} /* end .entry-content */
+
+.page-blocks-wrapper {
+  .page-block {
+    height: 422px;
+    a {
+      display: block;
+      height: 100%;
+      position: relative;
+    }
+    .page-block-contents {
+      background-color: transparent;
+      bottom: 0;
+      height: auto;
+      margin-top: auto;
+      padding: 0 30px 27px 10px;
+      position: absolute;
+      text-align: left;
+      width: 100%;
+      z-index: 10;
+      &:after {
+        bottom: 32px;
+        color: $gerber-orange;
+        content: "\f067";
+        font: normal normal normal 24px/1 FontAwesome;
+        position: absolute;
+        right: 10px;
+      }
+      
+      h2 {
+        font-size: 35px;
+        margin: 0 0 8px 0;
+        text-shadow: 0px 0px 100px rgba(0, 0, 0, 1);
+      }
+      
+      p {
+        margin: 0 0 8px 0;
+        text-shadow: 0px 0px 100px rgba(0, 0, 0, 1);
+        strong {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.product-rows {
+  .product-row {
+    .show-more-content {
+      .product-details-left { 
+        .product-thumbs-wrap.thumbs-1 {
+          display: inline-block;
+          margin-right: 2%;
+          width: 47%;
+          &:last-of-type {
+            margin-left: 2%;
+            margin-right: 0;
+          }
+        }
+        ul.product-thumbs {
+          padding-right: 20px;
+          li {
+            width: 44%;
+          }
+          
+          &.thumbs-1 {
+            li {
+              text-align: left;
+              width: 100%;
+            }
+          }
+          
+          &.thumbs-3 {
+            li { 
+              width: 28%;
+            }
+          }
+        }
+      }
+      
+      .product-details-right {
+        ul.product-features {
+          li {
+            margin-right: 1%;
+            width: 32%;
+            img {
+              width: auto;
+            }
+          }
+          
+          &.features-4 {
+            li {
+              width: 49%; 
+            }
+          }
+        }
+      }
+    }
+    &.lifestyle {
+      .product-row-content {
+        padding: 250px 0 85px 0;
+      }
+    }
+  }
+}
+
+.photo-grid-container {
+  padding: 45px 0 55px 0;
+}
+
+.grid-wrapper {
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  float: left;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+  margin: 0.7% 0;
+  width: 100%;
+  
+  img {
+    display: block;
+    flex-shrink: 0;
+  }
+  
+  .grid-onethird {
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+    flex-direction: column;
+    margin-right: 1.5%;
+    width: 33.33%;
+    
+    &.grid-onethird-tall {
+      width: 33.7%;
+    }
+    
+  }
+  
+  &.grid-twothirds-onethird {
+    .grid-onethird-tall {
+      margin-left: 1.5%;
+      margin-right: 0;
+    }
+  }
+  
+  .grid-twothirds {
+    width: 66.667%;
+  }
+  
+  .grid-onehalf {
+    width: 49.2%;
+  }
+    
+}
+
+/*********************
+FOOTER STYLES
+*********************/
+.social-links {
+  li {
+    margin-left: 19px;
+  }
+}
+
+/*
+check your menus here. do they look good?
+do they need tweaking?
+*/
+.footer-links {
+	ul {
+		li {}
+	}
+} /* end .footer-links */
+

@@ -1,0 +1,566 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+Here's where you can start getting into the good stuff.
+This size will work on iPads, other tablets, and desktops.
+So you can start working with more styles, background images,
+and other resources. You'll also notice the grid starts to
+come into play. Have fun!
+
+******************************************************************/
+
+
+/*********************
+GENERAL STYLES
+*********************/
+
+html, 
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.tablet-show {
+  display: none;
+}
+.tablet-hide {
+  display: inline-block;
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	width: 760px;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+
+.header {
+  left: 0;
+  position:fixed;
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.nav {
+	border: 0;
+	ul {
+		background:$black;
+		margin-top:0;
+	}
+	li {
+		position: relative;
+
+		a {
+			border-bottom: 0;
+
+			/*
+			you can use hover styles here even though this size
+			has the possibility of being a mobile device.
+			*/
+			&:hover, &:focus {
+				color: $white;
+				text-decoration: none;
+			}
+		}
+
+		&:first-child {}
+		&:last-child {}
+
+		/*
+		plan your menus and drop-downs wisely.
+		*/
+		ul.sub-menu,
+		ul.children {
+			margin-top: 0;
+			border: 1px solid #ccc;
+			border-top: 0;
+			position: absolute;
+			visibility: hidden;
+			z-index: 8999;
+
+			li {
+
+				a {
+					padding-left: 10px;
+					border-right: 0;
+					display: block;
+					width: 180px;
+					border-bottom: 1px solid #ccc;
+
+					&:hover,
+					&:focus {}
+
+					&:link {}
+				}
+
+				&:first-child {}
+
+				&:last-child {
+
+					a {
+						border-bottom: 0;
+					}
+				}
+
+				/*
+				if you need to go deeper, go nuts
+				just remember deeper menus suck
+				for usability. k, bai.
+				*/
+				ul {
+					top:0;
+					left:100%;
+				}
+			}
+
+			/* highlight sub-menu current page */
+			li.current-menu-item,
+			li.current_page_item,
+			li.current_page_ancestor {
+				a {}
+			}
+		}
+
+		/* showing sub-menus */
+		&:hover > ul {
+			top: auto;
+			visibility:visible;
+		}
+
+	} /* end .menu ul li */
+
+	/* highlight current page */
+	li.current-menu-item,
+	li.current_page_item,
+	li.current_page_ancestor {
+		a {}
+	}  /* end current highlighters */
+
+} /* end .nav */
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+.custom-header,
+.page-template-default .custom-header {
+  height: 700px;
+  .header-content {
+    h1 {
+      font-size: 80px;
+      margin-bottom: 32px;
+      &:after {
+        bottom: -14px;
+      }
+    }
+    
+    .subtitle {
+      font-size: 29px;
+    }
+    
+    .white-btn {
+      margin-top: 30px;
+    }
+  }
+}
+
+#container {
+  min-height: 100%;
+  padding-top: 58px;
+  position: relative;
+}
+
+#content {
+  padding-bottom: 80px;
+}
+
+.page-blocks-wrapper {
+  display: -webkit-box;  
+  display: -moz-box;         
+  display: -ms-flexbox;  
+  display: -webkit-flex; 
+  display: flex; 
+  .page-block {
+    float: left;
+    height: 422px;
+    
+    a {
+      display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+      display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+      display: -ms-flexbox;  /* TWEENER - IE 10 */
+      display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+      display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+      flex-flow: column nowrap;
+      height: 100%;
+      &:hover {
+        .overlay {
+          background-color: rgba(0,0,0,0.6);
+        }
+      }
+    }
+    .page-block-contents {
+      background-color: transparent;
+      margin-top: auto;
+      padding: 0 30px 27px 10px;
+      position: relative;
+      text-align: left;
+      z-index: 10;
+      &:after {
+        bottom: 32px;
+        color: $gerber-orange;
+        content: "\f067";
+        font: normal normal normal 24px/1 FontAwesome;
+        position: absolute;
+        right: 10px;
+      }
+      
+      h2 {
+        font-size: 35px;
+        margin: 0 0 8px 0;
+        text-shadow: 0px 0px 100px rgba(0, 0, 0, 1);
+      }
+      
+      p {
+        margin: 0 0 8px 0;
+        text-shadow: 0px 0px 100px rgba(0, 0, 0, 1);
+        strong {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.page-template-default  {
+  .page-blocks-wrapper {
+    .page-block {
+      height: 565px;
+      width: 33.33%;
+    }
+  }
+  &.home,
+  &.page-id-426 {
+    .page-blocks-wrapper {
+      flex-wrap: wrap;
+      margin-top: 20px;
+      
+      .page-block {
+        height: 422px;
+        width: 32%;
+        margin-bottom: 20px;
+        margin-right: 2%;
+        &:nth-child(3n+3){
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+#product-anchors {
+  ul {
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+    justify-content: space-between;
+    -ms-flex-pack: justify;
+    li {
+      margin: 0 15px;
+      width: 9%;
+    }
+  }
+}
+
+.product-rows {
+  .product-row {
+    .product-row-content {
+      align-items: center;
+      display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+      display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+      display: -ms-flexbox;  /* TWEENER - IE 10 */
+      display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+      display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+      height: 600px;
+      padding: 0;
+      text-align: left;
+      .product-overview {
+        margin-top: -13%;
+        padding-left: 15px;
+        width: 37%;
+        
+        @media screen and (max-width:1139px){
+          .orange-btn {
+            margin-bottom: 30px;
+          }
+        }
+      }
+      .product-image {
+        order: 2;
+        margin-top: -7%;
+        text-align: center;
+        width: 63%;
+      }
+    }
+    .show-more-content { 
+      background-position: bottom center;
+      font-size: 19px;
+      padding-bottom: 100px;
+      padding-left: 75px;
+      padding-right: 75px;
+      padding-top: 75px;
+      
+      .product-details {
+        display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;  /* TWEENER - IE 10 */
+        display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+        display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+        justify-content: space-between;
+        -ms-flex-pack: justify;
+      }
+      .product-details-left {
+        float: left;
+        width: 34%;
+        
+        h3 {
+          font-size: 30px;
+          line-height: 1.1;
+          margin: 0;
+        }
+      }
+      .product-details-right {
+        float: right;
+        width: 62%;
+        
+        ul.product-features {
+          li {
+            width: 49%;
+            
+          }
+        }
+        
+        &.drawing-img-wrap {
+          align-items: center;
+          display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+          display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+          display: -ms-flexbox;  /* TWEENER - IE 10 */
+          display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+          display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+          flex-direction: column;
+          
+          img {
+            margin: auto;
+          }
+        }
+      }
+    }
+    &.lifestyle {
+      .overlay {
+        background-image: none !important;
+      }
+      .product-row-content {
+        padding: 64px 0 85px 0;
+      }
+    }
+  }
+}
+
+.grid-wrapper {
+  margin: 6px 0;
+}
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+.sidebar {
+	margin-top: 2.2em;
+}
+
+	.widgettitle {
+		border-bottom: 2px solid #444;
+		margin-bottom: 0.75em;
+	}
+
+	.widget {
+		padding: 0 10px;
+		margin: 2.2em 0;
+
+		ul {
+			li {
+				margin-bottom: 0.75em;
+
+				&:first-child {}
+				&:last-child {}
+				a {}
+				/* deep nesting */
+
+				ul {
+					margin-top: 0.75em;
+					padding-left: 1em;
+				}
+			}
+		}
+	}
+
+
+	/* links widget */
+	.widget_links {}
+	.widget_links ul {}
+	.widget_links ul li {}
+	.widget_links ul li a {}
+
+	/* meta widget */
+	.widget_meta {}
+	.widget_meta ul {}
+	.widget_meta ul li {}
+	.widget_meta ul li a {}
+
+	/* pages widget */
+	.widget_pages {}
+	.widget_pages ul {}
+	.widget_pages ul li {}
+	.widget_pages ul li a {}
+
+	/* recent-posts widget */
+	.widget_recent_entries {}
+	.widget_recent_entries ul {}
+	.widget_recent_entries ul li {}
+	.widget_recent_entries ul li a {}
+
+	/* archives widget */
+	.widget_archive {}
+	.widget_archive ul {}
+	.widget_archive ul li {}
+	.widget_archive ul li a {}
+	.widget_archive select {}
+	.widget_archive option {}
+
+	/* tag-cloud widget */
+	.widget_links {}
+	.widget_links li:after {}
+	.widget_links li:before {}
+	.widget_tag_cloud {}
+	.widget_tag_cloud a {}
+	.widget_tag_cloud a:after {}
+	.widget_tag_cloud a:before {}
+
+	/* calendar widget */
+	.widget_calendar {}
+	#calendar_wrap {}
+	#calendar_wrap th {}
+	#calendar_wrap td {}
+	#wp-calendar tr td {}
+	#wp-calendar caption {}
+	#wp-calendar a {}
+	#wp-calendar #today {}
+	#wp-calendar #prev {}
+	#wp-calendar #next {}
+	#wp-calendar #next a {}
+	#wp-calendar #prev a {}
+
+	/* category widget */
+	.widget_categories {}
+	.widget_categories ul {}
+	.widget_categories ul li {}
+	.widget_categories ul ul.children {}
+	.widget_categories a {}
+	.widget_categories select{}
+	.widget_categories select#cat {}
+	.widget_categories select.postform {}
+	.widget_categories option {}
+	.widget_categories .level-0 {}
+	.widget_categories .level-1 {}
+	.widget_categories .level-2 {}
+	.widget_categories .level-3 {}
+
+	/* recent-comments widget */
+	.recentcomments {}
+	#recentcomments {}
+	#recentcomments li {}
+	#recentcomments li a {}
+	.widget_recent_comments {}
+
+	/* search widget */
+	#searchform {}
+	.widget_search {}
+	.screen-reader-text {}
+
+	/* text widget */
+	.textwidget {}
+	.widget_text {}
+	.textwidget p {}
+
+
+/*********************
+FOOTER STYLES
+*********************/
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+}
+
+.footer-nav {
+  width: auto;
+  
+  li {
+    float: left;
+    font-size: 14px;
+  }
+}
+
+.social-links {
+  float: right;
+  margin-top: 16px;
+  width: auto;
+  
+  li {
+    float: left;
+  }
+}
+
+/*
+you'll probably need to do quite a bit
+of overriding here if you styled them for
+mobile. Make sure to double check these!
+*/
+.footer-links {
+	ul {
+		li {
+			a {
+				&:hover {}
+			}
+			/*
+			be careful with the depth of your menus.
+			it's very rare to have multi-depth menus in
+			the footer.
+			*/
+			ul {}
+		}
+	}
+} /* end .footer-links */
+
+.footer-left, .footer-right {
+    float: left;
+    width: 50%;
+}
+
+.copyright {
+  float: right;
+}
+

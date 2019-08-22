@@ -1,0 +1,120 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Button Styles
+
+Buttons are a pretty important part of your site's style, so it's
+important to have a consistent baseline for them. Use this stylesheet
+to create all kinds of buttons.
+
+Helpful Links:
+http://galp.in/blog/2011/08/02/the-ui-guide-part-1-buttons/
+
+******************************************************************/
+
+/*********************
+BUTTON DEFAULTS
+We're gonna use a placeholder selector here
+so we can use common styles. We then use this
+to load up the defaults in all our buttons.
+
+Here's a quick video to show how it works:
+http://www.youtube.com/watch?v=hwdVpKiJzac
+
+*********************/
+
+%btn {
+  border-radius: 0;
+  display: inline-block;
+  position: relative;
+  font-family: $sourceSans;
+  text-decoration: none;
+  color: $white;
+  font-size: 15px;
+  line-height: 1em;
+  font-weight: 900;
+  padding: 10px 16px;
+  border: 2px solid $white;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  // hovering on the btn
+  &:hover, &:focus {
+    border-color: $black !important;
+    background-color: $black !important;
+    color: $white !important;
+    text-decoration: none;
+    outline: none;
+  } // end hover
+
+  // clicking on the button
+  &:visited {
+    color: $white;
+  } 
+
+} // end .button
+
+/*
+An example button.
+You can use this example if you want. Just replace all the variables
+and it will create a button dependant on those variables.
+*/
+.blue-btn {
+  @extend %btn; // here we load the btn defaults
+  background-color: $blue;
+
+  &:hover,
+  &:focus {
+    background-color: darken($blue, 4%);
+  } // end hover
+
+  &:active {
+    background-color: darken($blue, 5%);
+  } // end active
+
+} // end blue button
+
+.white-btn {
+  @extend %btn; // here we load the btn defaults
+  background-color: transparent;
+  
+  &.launch-video {
+    background-color: rgba(0,0,0,0.2);
+    background-image: url('../images/video-button-icon.png');
+    background-position: 14px center;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    padding-left: 43px;
+  }
+
+  &:hover,
+  &:focus {
+  } // end hover
+
+  &:active {
+  } // end active
+
+} // end white button
+
+.orange-btn {
+  @extend %btn; // here we load the btn defaults
+  background-color: $gerber-orange;
+  border-color: $gerber-orange;
+  color: $black;
+
+  &:hover,
+  &:focus {
+    background-color: #f9ad4a !important;
+    border-color: #f9ad4a !important;
+    color: $black !important;
+  } // end hover
+
+  &:active {
+  } // end active
+  
+  &:visited {
+    color: $black;
+  }
+
+} // end orange button
